@@ -1,0 +1,94 @@
+@import "../../../../styles/mixins";
+@import "../../../../styles/variables";
+.paleta {
+  // IS A PALETA DE COLORES TO REREFERENCE
+  --wow-red: #c62228;
+  --wow-orange: #f26428;
+  --wow-yellow: #fff212;
+  --wow-green: #00ff00;
+  --wow-light-blue: #0face3;
+  --wow-blue: #0065e3;
+  --wow-logo-blue: #306fb2;
+
+  --wow-white: #ffffff;
+  --wow-black: #000000;
+  --wow-gray: #808080;
+  --wow-light-gray: #c0c0c0;
+  --wow-dark-gray: #404040;
+  --wow-darker-gray: #202020;
+  --wow-darkest-gray: #000000;
+}
+.menu-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 3px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  //   display: none;
+  padding-top: 10px;
+
+  .button {
+    color: white;
+    box-shadow: 0 1px 8px 0 rgb(0 0 0 / 40%);
+    // top: -25px;
+    height: 40px;
+    width: 30%;
+    font-size: 13px;
+    @include text-shadow(1px, 2px, 2px, var(--wow-black));
+    &:nth-child(1) {
+      background: #ffffff;
+    }
+    &:nth-child(2) {
+      background: var(--wow-blue);
+      border-bottom: 5px solid var(--wow-red);
+    }
+    &:nth-child(3) {
+      background: var(--wow-blue);
+      border-bottom: 5px solid var(--wow-orange);
+    }
+    &:nth-child(4) {
+      background: var(--wow-blue);
+      border-bottom: 5px solid var(--wow-yellow);
+    }
+    _ &:nth-child(5) {
+      background: var(--wow-blue);
+      border-bottom: 5px solid var(--wow-light-blue);
+    }
+    &:nth-child(6) {
+      background: var(--wow-blue);
+      border-bottom: 5px solid var(--wow-blue);
+      // height: 100vh;
+      justify-content: start;
+    }
+  }
+  .logo-button {
+    color: white;
+    background: #ffffff;
+    box-shadow: 0 1px 8px 0 rgb(0 0 0 / 40%);
+    // top: -25px;
+    height: 40px;
+    width: 30%;
+    font-size: 13px;
+    display: grid;
+    place-items: center;
+
+    .svg-logo-icon {
+      height: 21px;
+      width: 54px;
+      position: relative;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      // top: 0px;
+      font-size: 13px;
+
+      // left: 1px;
+    }
+  }
+
+  .active {
+    text-decoration: underline;
+  }
+}

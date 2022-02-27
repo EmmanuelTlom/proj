@@ -1,0 +1,9 @@
+
+<app-header-menu>address works!</app-header-menu>
+<div class="contenedor">
+<mat-card-content class="blue" style="gap: 3rem;">
+    <h1>Customer Information</h1>
+    <app-calendar-time-scheduler (onConfirmDate)="onConfirmDate($event)"></app-calendar-time-scheduler>
+    <button class="next-button" (click)="goToNextPage()" mat-raised-button>BACK</button>
+</mat-card-content>
+</div>

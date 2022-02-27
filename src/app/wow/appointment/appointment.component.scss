@@ -1,0 +1,41 @@
+@import "../../../styles/mixins";
+@import "../../../styles/variables";
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+}
+.blue {
+  //   background-color: blue;
+  width: 90%;
+  margin: 0 auto;
+}
+.contenedor {
+  display: flex;
+  //   flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  //   background-color: red;
+  width: 100%;
+  height: 100%;
+  gap: 100px;
+  //   mat-form-field {
+  //     width: 30vw;
+  //   }
+  .next-button {
+    margin: 4rem auto !important;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    width: 50vw;
+    background: var(--wow-yellow);
+    color: var(--wow-white);
+    font-size: 30px;
+    animation: rubberBand 0.5s ease-out 0.1s forwards;
+    @include text-shadow(1px, 2px, 2px, var(--wow-black));
+  }
+}

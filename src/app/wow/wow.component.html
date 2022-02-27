@@ -1,0 +1,346 @@
+<div *ngIf="isLandingPage" class="home-page">
+    <video autoplay muted="muted" loop class="myVideo" #videoLand>
+        <source src="./assets/video/3.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <div class="home-page_left-half ">
+        <div class="brand-container">
+            <h1 class="freight-hub"><span style="color: black;">WOW</span>Hub</h1>
+            <br>
+            <br>
+            <br>
+            <br>
+            <h2 class="welcome">Welcome to appointment
+                scheduling!</h2>
+            <p>I agree to the <a href="">TrukHub Terms</a> and <a href="">Privacy Policy</a> </p>
+        </div>
+        <div class="buttons-home-page">
+            <button class="button" mat-raised-button color="primary" (click)="isLandingPage = false"
+                style="color: #fff;background: #1e88e5;box-shadow: 0 1px 8px 0 rgb(0 0 0 / 40%);">Request New
+                appointment</button>
+            <button class="button" mat-raised-button color="accent">Change appointment</button>
+        </div>
+
+    </div>
+    <div class="home-page_right-half"></div>
+</div>
+
+<div *ngIf="!isLandingPage" class="step-container">
+    <div class="brand-container" style="text-align: center;">
+        <h1 class="freight-hub"><span style="color: black;">WOW</span>Hub</h1>
+    </div>
+
+    <div class="stepper">
+        <div class="step">
+            <!-- ☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️ STEPPER ICONS ☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️ -->
+            <div class="stepper-icons-container">
+                <div class="vertical-line"></div>
+                <div class="stpper-icons" style="flex-direction: row;" *ngFor="let icon of STEPER_ICONS; let i=index">
+                    <button class="buton-icon " [ngClass]="icon.class" mat-mini-fab (click)="setCurrentStep(i)">
+                        <div class="icon">
+                            <div *ngIf="!(icon.class == 'done')?true:false">{{icon.step}}</div>
+                            <svg *ngIf="(icon.class == 'done')?true:false"
+                                style="position: relative;top: -8px;left: 2px;" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20" width="100%" fill="currentColor" aria-hidden="true">
+                                <path d="M8.6 13.8c-.1 0-.3 0-.4-.1L4.5 9.9c-.2-.2-.2-.5 0-.7s.5-.2.7 0l3.4 3.4 6.2-6.2c.
+                                2-.2.5-.2.7 0s.2.5 0 .7L9 13.6c-.2.1-.3.2-.4.2z"></path>
+                            </svg>
+                        </div>
+                    </button>
+                    <p style="width: 130px;padding-top: 10px;font-size: 12px;">{{icon.stepTitle}}</p>
+                </div>
+            </div>
+
+             <!-- ☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️ -->
+
+             <!-- 💚💚💚💚💚💚💚💚💚💚💚💚💚💚💚💚💚💚💚💚💚💚💚💚💚💚💚💚💚💚💚💚💚💚💚💚💚💚💚💚💚💚💚 -->
+            <div *ngIf="stepIconIndex == 0" class="step-form">
+                <div class="step-1">
+                    <div class="step-title" style="margin-left: 10px;">STEP {{stepIconIndex + 1}}</div>
+                    <mat-card-content class="flex-column">
+                        <mat-icon
+                            style="font-size: 40px;color: #1e88e5; animation: fadeIn 0.1s ease-in-out 0.1s backwards;">
+                            location_on</mat-icon>
+                        <br>
+                        <h2>Wherehouse location</h2>
+                        <div class="subheading-1">Boca Raton</div>
+                        <div
+                            style="display: flex;flex-direction: row;justify-content: center;align-items: center;gap: 30px;">
+                            Miami, FL 33167
+                        </div>
+                    </mat-card-content>
+                    <div style="display: flex; justify-content: center;padding-top: 20px;">
+                        <mat-form-field appearance="outline" style="width: 432px;">
+                            <mat-label>Service Type</mat-label>
+                            <mat-select class="selectLabels" [(ngModel)]="serviceType"
+                                (selectionChange)="serviceSelected(serviceType)">
+                                <mat-option *ngFor="let service of SERVICES" [value]="service">
+                                    {{service.name}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="buttons-home-page">
+                        <button class="button" mat-raised-button (click)="isLandingPage = true"
+                            style="color: #1e88e5;background: white;box-shadow: 0 1px 8px 0 rgb(0 0 0 / 40%);">cancel</button>
+                        <button class="button" (click)="setCurrentStep(1)" [ngClass]="(step1Move)?'active':'no-active'"
+                            mat-raised-button>next</button>
+                    </div>
+
+                </div>
+            </div>
+             <!-- ❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️ -->
+            <div *ngIf="stepIconIndex == 1" class="step-form">
+                <div class="step-2">
+                    <div class="step-title" style="margin-left: 10px;">STEP {{stepIconIndex + 1}}</div>
+                    <mat-card-content class="flex-column">
+                        <mat-icon
+                            style="font-size: 40px;color: #1e88e5; animation: fadeIn 0.1s ease-in-out 0.1s backwards;">
+                            confirmation_number</mat-icon>
+                        <br>
+                        <h2>Order Information</h2>
+
+                    </mat-card-content>
+                    <mat-card-content class="flex-row">
+                        <div style="display:flex;flex-direction: column;">
+                            <mat-form-field appearance="outline" style="width: 344px;margin-right: 20px;">
+                                <mat-label>Order #</mat-label>
+                                <input matInput>
+                            </mat-form-field>
+                            <p *ngIf="true">Order # is required </p>
+                        </div>
+                        <button class="button active" (click)="setCurrentStep(1)" mat-raised-button
+                            style="color: white;background: #1e88e5;box-shadow: 0 1px 8px 0 rgb(0 0 0 / 40%);top: -25px;height: 51px;">
+                            <mat-icon style="color: #ffffff; animation: fadeIn 0.2s ease-in-out 0.3s backwards;">
+                                search
+                            </mat-icon>
+                        </button>
+                    </mat-card-content>
+
+                    <div style="display: flex; justify-content: center;padding-top: 21px;">
+                        <mat-form-field appearance="outline" style="width: 432px;">
+                            <mat-label>Equipment</mat-label>
+                            <mat-select class="selectLabels" [(ngModel)]="serviceType"
+                                (selectionChange)="serviceSelected(serviceType)">
+                                <mat-option *ngFor="let service of EQUIPMENT" [value]="service">
+                                    {{service.name}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="buttons-home-page">
+                        <button class="button" mat-raised-button (click)="setCurrentStep(0)"
+                            style="color: #1e88e5;background: white;box-shadow: 0 1px 8px 0 rgb(0 0 0 / 40%);">back</button>
+                        <button class="button" (click)="setCurrentStep(1)" [ngClass]="(step1Move)?'active':'no-active'"
+                            mat-raised-button>next</button>
+                    </div>
+                </div>
+            </div>
+             <!-- 💜💜💜💜💜💜💜💜💜💜💜💜💜💜💜💜💜💜💜💜💜💜💜💜💜💜💜💜💜💜💜💜💜💜💜💜💜💜💜💜💜💜💜 -->
+            <div *ngIf="stepIconIndex == 2" class="step-form">
+                <div class="step-3">
+                    <div class="step-title" style="margin-left: 10px;" style="margin-left: 10px;">STEP {{stepIconIndex + 1}}</div>
+                    <mat-card-content class="flex-column">
+                        <mat-icon
+                            style="font-size: 40px;color: #1e88e5; animation: fadeIn 0.1s ease-in-out 0.1s backwards;">
+                            account_circle</mat-icon>
+                        <br>
+                        <h2>Company Information</h2>
+                    </mat-card-content>
+
+                    <div style="display: flex;justify-content: center;margin-top: 20px;gap: 3px;">
+
+                        <button class="button active" (click)="setCurrentStep(1)" mat-raised-button
+                            style="color: white;background: #1e88e5;box-shadow: 0 1px 8px 0 rgb(0 0 0 / 40%);top: -25px;height: 51px;width: 106px;">
+                            MC
+                        </button>
+                        <button class="button active" (click)="setCurrentStep(1)" mat-raised-button
+                            style="color: white;background: #1e88e5;box-shadow: 0 1px 8px 0 rgb(0 0 0 / 40%);top: -25px;height: 51px;width: 106px;">
+                            DOT
+                        </button>
+                        <button class="button active" (click)="setCurrentStep(1)" mat-raised-button
+                            style="color: white;background: #1e88e5;box-shadow: 0 1px 8px 0 rgb(0 0 0 / 40%);top: -25px;height: 51px;width: 106px;">
+                            SCAC
+                        </button>
+                        <button class="button active" (click)="setCurrentStep(1)" mat-raised-button
+                            style="color: white;background: #1e88e5;box-shadow: 0 1px 8px 0 rgb(0 0 0 / 40%);top: -25px;height: 51px;width: 106px;">
+                            MANUALLY
+                        </button>
+
+                    </div>
+
+                    <mat-card-content class="flex-row">
+                        <div style="display:flex;flex-direction: column;">
+                            <mat-form-field appearance="outline" style="width: 344px;margin-right: 20px;">
+                                <mat-label>SCAC</mat-label>
+                                <input matInput>
+                            </mat-form-field>
+                            <p *ngIf="true">Order # is required </p>
+                        </div>
+                        <button class="button active" (click)="setCurrentStep(1)" mat-raised-button
+                            style="color: white;background: #1e88e5;box-shadow: 0 1px 8px 0 rgb(0 0 0 / 40%);top: -25px;height: 51px;">
+                            <mat-icon style="color: #ffffff; animation: fadeIn 0.2s ease-in-out 0.3s backwards;">
+                                search
+                            </mat-icon>
+                        </button>
+                    </mat-card-content>
+
+                    <div style="display: flex; justify-content: center;padding-top: 21px;">
+                        <mat-form-field appearance="outline" style="width: 432px;">
+                            <mat-label>Equipment</mat-label>
+                            <mat-select class="selectLabels" [(ngModel)]="serviceType"
+                                (selectionChange)="serviceSelected(serviceType)">
+                                <mat-option *ngFor="let service of EQUIPMENT" [value]="service">
+                                    {{service.name}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="buttons-home-page">
+                        <button class="button" mat-raised-button (click)="setCurrentStep(0)"
+                            style="color: #1e88e5;background: white;box-shadow: 0 1px 8px 0 rgb(0 0 0 / 40%);">back</button>
+                        <button class="button" (click)="setCurrentStep(1)" [ngClass]="(step1Move)?'active':'no-active'"
+                            mat-raised-button>next</button>
+                    </div>
+                </div>
+            </div>
+             <!--  🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍 -->
+            <div *ngIf="stepIconIndex == 3" class="step-form">
+                <div class="step-4">
+                    <div class="step-title" style="margin-left: 10px;" style="margin-left: 10px;">STEP {{stepIconIndex + 1}}</div>
+                    <mat-card-content class="flex-column">
+                        <mat-icon
+                            style="font-size: 40px;color: #1e88e5; animation: fadeIn 0.1s ease-in-out 0.1s backwards;">
+                            today</mat-icon>
+                        <br>
+                        <h2>Appointment Details</h2>
+                    </mat-card-content>
+
+                    <mat-card-content style="display: flex;justify-content: space-evenly;">
+
+                        <!-- 🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰 -->
+                        <div style="display: flex;justify-content: flex-start;margin-top: 20px;gap: 3px;">
+                            <mat-form-field    appearance="outline" style="width: 250px;  margin-left: 30px;">
+                                <mat-label>Appointment Date</mat-label>
+                                <input matInput  [min]="MinDate"[matDatepicker]="theTimePicker" placeholder="select a date" (dateChange)="onDateSelect($event)"
+                                    required [min]="today | date: 'yyyy-MM-dd'" >
+                                <mat-error *ngIf="true">
+                                    A valid date is required!
+                                </mat-error>
+                                <mat-datepicker-toggle matSuffix [for]="theTimePicker"></mat-datepicker-toggle>
+                                <mat-datepicker  (closed)="_openCalendar(theTimePicker, 'picker')" [opened]="true" #theTimePicker color="primary" style="color: tomato;"></mat-datepicker>
+                            </mat-form-field>
+                        </div>
+                        <!-- 🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰 -->
+                        <div style="margin-left: 124px;z-index: 1;">
+                            <p style="font-size: larger;text-align: center;">Available Time</p>
+                            <div class="">
+                                <div class="timePickerclass">
+                                    <div *ngFor="let time of times; let i = index; " style="display: flex;flex-direction: column;align-items: center; ">
+                                        <button *ngIf="i !== selectTimeConfirmIndex" [disabled]="(times.length > 1)?false:true" mat-raised-button (click)="selectTimeConfirmIndex = i"
+                                             style="width: 200px;margin: 5px 0px;">{{time.MeetingTime}}</button>
+                                        <div *ngIf="i === selectTimeConfirmIndex && times.length > 1" style="display: flex;flex-direction: row;justify-content: space-around;">
+                                            <button mat-raised-button style="margin: 10px 2px;color: white;" color="accent">{{time.MeetingTime}}</button>
+                                            <button mat-raised-button (click)="radioChange(time.name)"  style="margin: 10px 2px;color: white;" color="primary">Confirm </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </mat-card-content>
+
+                    <!-- <div class="buttons-home-page" >
+                        <button class="button" mat-raised-button (click)="setCurrentStep(0)"
+                            style="color: #1e88e5;background: white;box-shadow: 0 1px 8px 0 rgb(0 0 0 / 40%);">back</button>
+                        <button class="button" (click)="setCurrentStep(1)" [ngClass]="(step1Move)?'active':'no-active'"
+                            mat-raised-button>next</button>
+                    </div> -->
+
+                </div>
+            </div>
+             <!-- 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥 -->
+
+             <div *ngIf="stepIconIndex == 4" class="step-form">
+                <div class="step-1">
+                    <div class="step-title" style="margin-left: 10px;">STEP {{stepIconIndex + 1}}</div>
+                    <mat-card-content class="flex-column">
+                        <mat-icon
+                            style="font-size: 40px;color: #1e88e5; animation: fadeIn 0.1s ease-in-out 0.1s backwards;">
+                            account_circle</mat-icon>
+                        <br>
+                        <h2>Contact information</h2>
+
+                    </mat-card-content>
+
+                    <div style="display: flex; justify-content: center;padding-top: 20px;">
+                        <mat-form-field appearance="outline" style="width: 432px;">
+                            <mat-label>Service Type</mat-label>
+                            <mat-select class="selectLabels" [(ngModel)]="serviceType"
+                                (selectionChange)="serviceSelected(serviceType)">
+                                <mat-option *ngFor="let service of SERVICES" [value]="service">
+                                    {{service.name}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+
+
+                    <mat-card-content class="flex-row">
+                        <div style="display:flex;flex-direction: column;">
+                            <mat-form-field appearance="outline" style="width: 344px;margin-right: 20px;">
+                                <mat-label>Order #</mat-label>
+                                <input matInput>
+                            </mat-form-field>
+                            <p *ngIf="true">Order # is required </p>
+                        </div>
+                        <button class="button active" (click)="setCurrentStep(1)" mat-raised-button
+                            style="color: white;background: #1e88e5;box-shadow: 0 1px 8px 0 rgb(0 0 0 / 40%);top: -25px;height: 51px;">
+                            <mat-icon style="color: #ffffff; animation: fadeIn 0.2s ease-in-out 0.3s backwards;">
+                                search
+                            </mat-icon>
+                        </button>
+                    </mat-card-content>
+
+                    <div class="buttons-home-page">
+                        <button class="button" mat-raised-button (click)="isLandingPage = true"
+                            style="color: #1e88e5;background: white;box-shadow: 0 1px 8px 0 rgb(0 0 0 / 40%);">back</button>
+                        <button class="button" (click)="setCurrentStep(1)" [ngClass]="(step1Move)?'active':'no-active'"
+                            mat-raised-button>next</button>
+                    </div>
+
+                </div>
+            </div>
+             <div *ngIf="stepIconIndex == 5" class="step-form">
+                <div class="step-1">
+                    <div class="step-title" style="margin-left: 10px;">STEP {{stepIconIndex + 1}}</div>
+                    <mat-card-content class="">
+                        <mat-icon
+                            style="font-size: 40px;color: #1e88e5; animation: fadeIn 0.1s ease-in-out 0.1s backwards;">
+                            preview</mat-icon>
+                        <br>
+                        <h2 class="mt">Appointment Summary</h2>
+
+                    </mat-card-content>
+
+                    <div style="display: flex; flex-direction: column;justify-content: center;padding-top: 20px;align-items: center;">
+                        <mat-card style="width: 100%; margin: .65rem;">Simple card</mat-card>
+                        <mat-card style="width: 100%; margin: .65rem;">Simple card</mat-card>
+                        <mat-card style="width: 100%; margin: .65rem;">Simple card</mat-card>
+                    </div>
+
+
+                    <div class="buttons-home-page">
+                        <button class="button" mat-raised-button (click)="isLandingPage = true"
+                            style="color: #1e88e5;background: white;box-shadow: 0 1px 8px 0 rgb(0 0 0 / 40%);">back</button>
+                        <button class="button" (click)="setCurrentStep(1)" [ngClass]="(step1Move)?'active':'no-active'"
+                            mat-raised-button>submit</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

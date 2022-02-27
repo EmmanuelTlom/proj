@@ -1,0 +1,34 @@
+@import "../../../styles/mixins";
+@import "../../../styles/variables";
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.contenedor {
+  display: flex;
+  // flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+  // margin-top: 100px;
+
+  mat-form-field {
+    width: 30vw;
+  }
+  .next-button {
+    height: 50px;
+    width: 30vw;
+    background: var(--wow-blue);
+    color: var(--wow-white);
+    font-size: 30px;
+    animation: rubberBand 0.5s ease-out 0.1s forwards;
+    @include text-shadow(1px, 2px, 2px, var(--wow-black));
+  }
+}

@@ -1,0 +1,496 @@
+@import "../../../src/styles/mixins";
+@import "../../../src/styles/variables";
+
+.formFieldValidationAlert {
+  background-color: white;
+  border: solid 3px darkgray;
+  width: 448px;
+  z-index: 1;
+  height: 714px;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -53%);
+  border-radius: 3px;
+}
+
+.loader-on {
+  display: block;
+}
+.loader-off {
+  display: none;
+}
+
+.imagePresentar {
+  border: solid 5px darkgrey;
+  width: 948px;
+  height: 714px;
+  margin: 0;
+  position: absolute;
+  top: 53%;
+  left: 50%;
+  -ms-transform: translate(-50%, -53%);
+  transform: translate(-50%, -53%);
+  border-radius: 3px;
+  @include BoxShadow(6);
+}
+
+//desktop
+@media (min-width: 576px) {
+  .mainContainerPresent {
+    background-color: white;
+    /* border: solid 5px darkblue; */
+    width: 665px;
+    height: 90vh;
+    // height: calc(var(--vh, 1vh) * 90);
+    margin: 0;
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -53%);
+    border-radius: 10px;
+    text-align: center;
+    // background-image: url("http://bipresents.com/nw2/nw_slides/Test_WELL_PLATFORM/thumbnails/014.jpg");
+    @include BoxShadow(6);
+
+    .logo {
+      width: 200px;
+      margin-top: 30px;
+      padding: 10px;
+      height: 145px;
+      @include BoxShadow(6);
+    }
+
+    .welcome {
+      padding-top: 30px;
+      font-family: caviar;
+      font-size: 24px;
+      box-shadow: inset inset 0px 0px 5px #c1c1c1;
+    }
+  }
+}
+//mobile
+@media (max-width: 576px) {
+  .mainContainerPresent {
+    background-color: white;
+    // border: solid 5px darkblue;
+    width: 355px;
+    height: 90vh; /* Fallback for browsers that do not support Custom Properties */
+    // height: calc(var(--vh, 1vh) * 90);
+    margin: 0;
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -53%);
+    border-radius: 10px;
+    text-align: center;
+
+    .logo {
+      width: 200px;
+      margin-top: 30px;
+      padding: 10px;
+      height: 145px;
+      @include BoxShadow(6);
+    }
+
+    .welcome {
+      padding-top: 30px;
+      font-family: caviar;
+      font-size: 24px;
+      box-shadow: inset inset 0px 0px 5px #c1c1c1;
+    }
+  }
+}
+// small mobile
+@media (max-width: 400px) {
+  .mainContainerPresent {
+    background-color: white;
+    // border: solid 5px darkblue;
+    height: 90vh; /* Fallback for browsers that do not support Custom Properties */
+    height: calc(var(--vh, 1vh) * 80);
+    margin: 0;
+    // position: absolute;
+    // top: 52%;
+    // left: 50%;
+    text-align: center;
+    max-width: 500px;
+    min-height: 100%;
+    overflow-y: hidden;
+    text-align: center;
+
+    // background-image: url("http://bipresents.com/nw2/nw_slides/Test_WELL_PLATFORM/thumbnails/014.jpg");
+
+    // @include BoxShadow(6);
+
+    .logo {
+      width: 200px;
+      margin-top: 30px;
+      padding: 10px;
+      height: 145px;
+      @include BoxShadow(6);
+    }
+
+    .welcome {
+      padding-top: 30px;
+      font-family: caviar;
+      font-size: 24px;
+      box-shadow: inset inset 0px 0px 5px #c1c1c1;
+    }
+  }
+}
+
+.home-page {
+  display: grid;
+  display: -ms-grid;
+  overflow: hidden;
+  min-height: 100vh;
+  grid-template-columns: 1fr 1fr;
+  -ms-grid-columns: 1fr 1fr;
+  background-color: #f9f7fc;
+  .myVideo {
+    position: fixed;
+    right: -290px;
+    bottom: -23px;
+    width: 86%;
+    height: 77vh;
+  }
+}
+
+.home-page_left-half {
+  z-index: 100;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 68px 128px;
+
+  .brand-container {
+    padding-top: 150px;
+  }
+  p {
+    color: #96989c;
+    line-height: 30px;
+    font-size: 20px;
+  }
+
+  a {
+    text-decoration: none;
+    color: #1e88e5;
+  }
+
+  .welcome {
+    font-size: 30px;
+    width: 527px;
+    font-family: "caviar";
+    font-weight: 500;
+  }
+
+  .buttons-home-page {
+    display: flex;
+    gap: 30px;
+    .button {
+      width: 321px;
+      height: 63px;
+      font-family: Roboto;
+      font-size: 16px;
+      text-transform: uppercase;
+      color: white;
+    }
+  }
+
+  .freight-hub {
+    color: var(--brand-orange);
+    font-weight: bold;
+    font-size: 60px;
+    padding-top: 50px;
+    @include text-shadow(2px, 2px, 2px, rgba(0, 0, 0, 0.25));
+  }
+}
+
+.home-page_right-half {
+  grid-column: 2;
+  // width: 50vw;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  // z-index: -1;
+  width: 100%;
+  height: 100vh;
+}
+
+.step-container {
+  .freight-hub {
+    color: var(--brand-orange);
+    font-weight: bold;
+    font-size: 50px;
+    padding-top: 50px;
+    @include text-shadow(2px, 2px, 2px, rgba(0, 0, 0, 0.25));
+    animation: slideInDown 0.6s ease-in-out 0.1s backwards;
+  }
+}
+
+.mt {
+  margin: 0.65rem 0 !important;
+}
+.step {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.stepper {
+  width: 60%;
+  height: 77vh;
+  margin: 0;
+  position: absolute;
+  top: 54%;
+  left: 50%;
+  -ms-transform: translate(-50%, -53%);
+  transform: translate(-50%, -53%);
+  border-radius: 3px;
+  background-color: white;
+  // border: solid 1px var(--brand-dark-green);
+  // @include BoxShadow(2);
+  //   overflow: hidden;
+
+  // .stepper-icons-container{
+  //     height: 90vh;
+  // }
+
+  .vertical-line {
+    position: absolute;
+    top: 45px;
+    left: 30px;
+    border-left: 2px solid #a8a8a8;
+    height: 60vh;
+    animation: slideInDown 0.6s ease-in-out 0.1s backwards;
+  }
+
+  .stpper-icons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: flex-start;
+    margin: 10px 10px;
+    height: 11vh;
+
+    $postItHeaderColorsLength: 9;
+    @for $i from 1 through 9 {
+      &:nth-of-type(#{$postItHeaderColorsLength}n + #{$i}) {
+        animation: fadeIn 0.2s ease-in-out backwards;
+        animation-iteration-count: 1;
+        animation-delay: $i * 0.1 + s;
+      }
+    }
+
+    .active {
+      border: 2px solid #fff;
+      background-color: #1e88e5;
+      box-shadow: 0 0 0 2px #1e88e5;
+      .icon {
+        color: white;
+      }
+    }
+    .done {
+      border: 2px solid #fff;
+      background-color: #1e88e5;
+      box-shadow: 0 0 0 2px #1e88e5;
+      .icon {
+        color: white;
+      }
+    }
+
+    .no-active {
+      border: 2px solid #fff;
+      background-color: #cacaca;
+      box-shadow: 0 0 0 2px #cacaca;
+      .icon {
+        color: white;
+      }
+    }
+  }
+
+  .step-form {
+    width: 100%;
+    position: relative;
+    margin-top: 48px;
+    .step-title {
+      text-transform: uppercase;
+      color: #1e88e5;
+      font-size: 14px;
+      line-height: 16px;
+      text-align: center;
+      font-weight: 600;
+      padding-bottom: 20px;
+    }
+
+    .buttons-home-page {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      //   padding-top: 30px;
+      padding: 2rem 0;
+      width: 100%;
+      .button {
+        // width: 200px;
+        width: 100%;
+        height: 63px;
+        font-family: Roboto;
+        font-size: 12px;
+        text-transform: uppercase;
+        color: white;
+        padding: 0.55rem 0.75rem;
+      }
+
+      .active {
+        background: #1e88e5;
+        box-shadow: 0 1px 8px 0 rgb(0 0 0 / 40%);
+      }
+
+      .no-active {
+        background: #cacaca;
+        box-shadow: 0 1px 8px 0 rgb(0 0 0 / 40%);
+      }
+    }
+  }
+}
+
+::ng-deep .mat-select-panel {
+  font-size: 10px;
+}
+
+::ng-deep .mat-select-panel::-webkit-scrollbar {
+  width: 2px;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+::ng-deep .wc-date-container {
+  color: #8d062a !important;
+}
+
+::ng-deep .wc-date-popover {
+  width: 250px;
+  position: absolute;
+  top: 0px !important;
+  height: auto;
+  left: 0;
+  transform: translateX(0);
+}
+
+::ng-deep .ok {
+  display: none;
+}
+
+::ng-deep .mat-tab-body {
+  height: 500px;
+}
+
+.pickCV {
+  top: 380.432px;
+  left: 686.219px;
+}
+
+.timePickerclass {
+  color: #1564bf;
+  font-size: larger;
+  margin-bottom: 10px;
+  text-align: start;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  overflow-y: scroll;
+  max-height: 360px;
+  display: flex;
+  flex-direction: column;
+}
+
+::ng-deep .timePickerclass::-webkit-scrollbar {
+  display: block;
+  width: 5px;
+  height: 8px;
+}
+
+/* width */
+::ng-deep .timePickerclass::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::ng-deep .timePickerclass::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::ng-deep .timePickerclass::-webkit-scrollbar-thumb {
+  background: #1564bf;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::ng-deep .timePickerclass::-webkit-scrollbar-thumb:hover {
+  background: #1564bf;
+}
+
+.pesonalInfoClass {
+  height: 350px;
+}
+
+::ng-deep .pesonalInfoClass::-webkit-scrollbar {
+  display: block;
+  width: 5px;
+  height: 8px;
+}
+
+/* width */
+::ng-deep .pesonalInfoClass::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::ng-deep .pesonalInfoClass::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::ng-deep .pesonalInfoClass::-webkit-scrollbar-thumb {
+  background: #1564bf;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::ng-deep .pesonalInfoClass::-webkit-scrollbar-thumb:hover {
+  background: #1564bf;
+}
+
+// DATE PICKER
+::ng-deep .cdk-overlay-backdrop {
+  display: none;
+}
+::ng-deep .mat-datepicker-content {
+  position: absolute;
+  top: -57px;
+}
+
+::ng-deep .mat-calendar-body-today:not(.mat-calendar-body-selected) {
+  border-color: lightskyblue;
+}
+::ng-deep .mat-calendar-body-selected:not(.mat-calendar-body-active) {
+  color: white;
+}
+
+.displayNone {
+  display: none;
+}

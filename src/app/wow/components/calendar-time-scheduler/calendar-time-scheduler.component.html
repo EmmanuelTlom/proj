@@ -1,0 +1,41 @@
+<mat-card-content class="calender">
+
+  <!-- 🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰 -->
+  <div style="">
+      <mat-form-field appearance="outline" style="width: 250px;">
+          <mat-label>Appointment Date</mat-label>
+          <input matInput [min]="MinDate" [matDatepicker]="theTimePicker"
+              placeholder="select a date" (dateChange)="onDateSelect($event)" required
+              [min]="today | date: 'yyyy-MM-dd'">
+          <mat-error *ngIf="true">
+              A valid date is required!
+          </mat-error>
+          <mat-datepicker-toggle matSuffix [for]="theTimePicker"></mat-datepicker-toggle>
+          <mat-datepicker (closed)="_openCalendar(theTimePicker, 'picker')" [opened]="false"
+              #theTimePicker color="primary" style="color: tomato;"></mat-datepicker>
+      </mat-form-field>
+  </div>
+  <!-- 🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰🎰 -->
+  <div style="z-index: 1;">
+      <p style="font-size: larger;">Available Time</p>
+      <div class="">
+          <div class="timePickerclass">
+              <div *ngFor="let time of times; let i = index; "
+                  style="">
+                  <button *ngIf="i !== selectTimeConfirmIndex"
+                      [disabled]="(times.length > 1)?false:true" mat-raised-button
+                      (click)="selectTimeConfirmIndex = i"
+                      style="width: 200px;margin: 5px 0px;">{{time.MeetingTime}}</button>
+                  <div *ngIf="i === selectTimeConfirmIndex && times.length > 1"
+                      style="">
+                      <button mat-raised-button style="margin: 10px 2px;color: white;"
+                          color="accent">{{time.MeetingTime}}</button>
+                      <button mat-raised-button (click)="confirmDate(time.MeetingTime)"
+                          style="margin: 10px 2px;color: white;" color="primary">Confirm </button>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+</mat-card-content>
