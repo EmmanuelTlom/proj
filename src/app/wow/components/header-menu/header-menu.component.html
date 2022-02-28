@@ -1,4 +1,4 @@
-<div class="menu-container">
+<!-- <div class="menu-container">
     <button (click)="goToPage('login')" class="button logo-button" mat-raised-button>
         <mat-icon class="svg-logo-icon" svgIcon="wow-logo" >
         </mat-icon>
@@ -17,11 +17,38 @@
     </button>
     <button (click)="goToPage('confirmation')" class="button" mat-raised-button>
         <span style="">CONFIRMATION</span>
-        <!-- <h2>Summary value 1</h2>
-        <h2>Summary value 1</h2>
-        <h2>Summary value 1</h2>
-        <h2>Summary value 1</h2>
-        <h2>Summary value 1</h2> -->
+      
 
     </button>
-</div>
+</div> -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <span (click)="goToPage('login')">
+            <mat-icon class="svg-logo-icon" svgIcon="wow-logo" >
+            </mat-icon>
+        </span>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item" (click)="goToPage('address')">
+            <a class="nav-link active" aria-current="page" href="#">Address</a>
+          </li>
+          <li class="nav-item" (click)="goToPage('products')">
+            <a class="nav-link" href="#">Product</a>
+          </li>
+          <li class="nav-item" (click)="goToPage('appointment')">
+            <a class="nav-link" href="#">Appointment</a>
+          </li>
+          <li class="nav-item" (click)="goToPage('billing')">
+            <a class="nav-link" href="#">Billing</a>
+          </li>
+          <li class="nav-item" (click)="goToPage('confirmation')">
+            <a class="nav-link" href="#">Confirmation</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
